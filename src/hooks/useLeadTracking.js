@@ -85,6 +85,16 @@ export const useLeadTracking = () => {
       transport_type: "beacon",
       ...getUTMParams(),
     });
+    ReactGA.event("contact_form_submit", {
+      event_category: "Form Submission",
+      event_label: `${source}${propertyType ? ` - ${propertyType}` : ""}`,
+      lead_source: source,
+      property_type: propertyType,
+      funnel_stage:
+        formType === "contact_form" ? "lead" : "site_visit_request",
+      transport_type: "beacon",
+      ...getUTMParams(),
+    });
   },
   []
 );
