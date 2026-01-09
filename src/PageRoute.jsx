@@ -85,7 +85,7 @@ export const PageRoute = () => {
       utmSource: source,
       utmMedium: medium,
       utmCampaign: campaign,
-      utmKeyowrd: keyword,
+      utmKeyword: keyword,
     });
   }, []);
 
