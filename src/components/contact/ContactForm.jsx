@@ -137,43 +137,43 @@ const ContactForm = ({ contactmodal, setContactModal, leadSource }) => {
       },
     };
 
-    // try {
-    //   const response = await fetch(
-    //     "https://google-campaign-leads-service-dot-iqol-crm.appspot.com/handleMultipleCampaignData",
-    //     {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(payload),
-    //     }
-    //   );
+    try {
+      const response = await fetch(
+        "https://google-campaign-leads-service-dot-iqol-crm.appspot.com/handleMultipleCampaignData",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
-    //   if (!response.ok) {
-    //     throw new Error(`HTTP error! status: ${response.status}`);
-    //   }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-    //   const result = await response.json();
-    //   console.log("Success:", result);
+      const result = await response.json();
+      console.log("Success:", result);
 
-    //   setName("");
-    //   setNumber("");
+      setName("");
+      setNumber("");
 
-    //   setAlert(
-    //     <FormAlert
-    //       message="We received your info. Expect a response soon!"
-    //       onClose={() => setAlert(null)}
-    //     />
-    //   );
-    // } catch (error) {
-    //   console.error("Error submitting form:", error);
-    //   setAlert(
-    //     <FormAlert
-    //       message="Something went wrong. Please try again later."
-    //       onClose={() => setAlert(null)}
-    //     />
-    //   );
-    // } finally {
-    //   setTimeout(() => setLoading(false), 1000);
-    // }
+      setAlert(
+        <FormAlert
+          message="We received your info. Expect a response soon!"
+          onClose={() => setAlert(null)}
+        />
+      );
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setAlert(
+        <FormAlert
+          message="Something went wrong. Please try again later."
+          onClose={() => setAlert(null)}
+        />
+      );
+    } finally {
+      setTimeout(() => setLoading(false), 1000);
+    }
   };
 
   return (
